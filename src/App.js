@@ -35,21 +35,33 @@ class App extends Component {
 
 
   render() {
+
+    const style = {
+      backgroundColor: 'white',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px',
+      cursor: 'pointer',
+    };
+
+
     return (
       <div>
         <h1> Hola</h1>
         {/*<button onClick={this.switchNameHandler.bind(this, 'Felix Urso')} > Switch Name </button> */}
-        <button onClick={() => this.switchNameHandler('Felix Urso Battig Weber')} > Switch Name </button>  
+        <button 
+        style={style}
+        onClick={() => this.switchNameHandler('Felix Urso Battig Weber')} > Switch Name </button>
         <Person
           name={this.state.persons[0].name}
           age={this.state.persons[0].age} />
 
         <Person
           name={this.state.persons[1].name}
-          age={this.state.persons[1].age} 
-          clicked ={this.switchNameHandler.bind(this, 'Felix Battig') }
-          changed = {this.changeNameHandler}
-          >
+          age={this.state.persons[1].age}
+          clicked={this.switchNameHandler.bind(this, 'Felix Battig')}
+          changed={this.changeNameHandler}
+        >
           I like cooking</Person>
 
         <Person
