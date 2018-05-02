@@ -38,7 +38,7 @@ class App extends Component {
     const doesShow = this.state.showPersons;
     this.setState({ showPersons: !doesShow })
   };
-  
+
   render() {
 
     const style = {
@@ -49,17 +49,11 @@ class App extends Component {
       cursor: 'pointer',
     };
 
+    let personsa = null;
 
-    return (
-      <div>
-        <h1> Hola</h1>
-        {/*<button onClick={this.switchNameHandler.bind(this, 'Felix Urso')} > Switch Name </button> */}
-        <button
-          style={style}
-          onClick={() => this.togglePersonsHandler()} > Toggle Persons </button>
-        
-        { this.state.showPersons ===true ?
-          <div>
+    if (this.state.showPersons) {
+      personsa = (
+        <div>
           <Person
             name={this.state.persons[0].name}
             age={this.state.persons[0].age} />
@@ -76,8 +70,21 @@ class App extends Component {
             name={this.state.persons[2].name}
             age={this.state.persons[2].age} />
 
-        </div>: null
-        }
+        </div>
+      );
+    }
+
+
+    return (
+      <div>
+        <h1> Hola</h1>
+        {/*<button onClick={this.switchNameHandler.bind(this, 'Felix Urso')} > Switch Name </button> */}
+        <button
+          style={style}
+          onClick={() => this.togglePersonsHandler()} > Toggle Persons </button>
+        {personsa}
+
+
       </div>
     );
   }
