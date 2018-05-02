@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import Person from './Person/Person';
 
+
 class App extends Component {
 
   state = {
     persons: [
-      { name: 'Felix', age: 66 },
-      { name: 'Sunamelia', age: 64 },
-      { name: 'Urso', age: 66 }
+      { id: 1, name: 'Felix', age: 66 },
+      { id: 2, name: 'Sunamelia', age: 64 },
+      { id: 3, name: 'Urso', age: 66 }
     ],
     showPersons: false,
   }
@@ -49,29 +50,20 @@ class App extends Component {
       cursor: 'pointer',
     };
 
-    let personsa = null;
+    let persons = null;
 
     if (this.state.showPersons) {
-      personsa = (
+      persons = (
         <div>
-          <Person
-            name={this.state.persons[0].name}
-            age={this.state.persons[0].age} />
-
-          <Person
-            name={this.state.persons[1].name}
-            age={this.state.persons[1].age}
-            clicked={this.switchNameHandler.bind(this, 'Felix Battig')}
-            changed={this.changeNameHandler}
-          >
-            I like cooking</Person>
-
-          <Person
-            name={this.state.persons[2].name}
-            age={this.state.persons[2].age} />
-
+          {this.state.persons.map(person => {
+            return <Person
+              name={person.name}
+              age={person.name} />
+          })}
         </div>
       );
+      
+      
     }
 
 
@@ -82,7 +74,7 @@ class App extends Component {
         <button
           style={style}
           onClick={() => this.togglePersonsHandler()} > Toggle Persons </button>
-        {personsa}
+        {persons}
 
 
       </div>
