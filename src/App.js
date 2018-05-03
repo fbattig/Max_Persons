@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import Person from './Person/Person';
 
 
@@ -6,23 +6,14 @@ class App extends Component {
 
   state = {
     persons: [
-      { id: 1, name: 'Felix', age: 66 },
-      { id: 2, name: 'Sunamelia', age: 64 },
-      { id: 3, name: 'Urso', age: 66 }
+      {  name: 'Felix', age: 66 },
+      {name: 'Sunamelia', age: 64 },
+      {  name: 'Urso', age: 66 }
     ],
     showPersons: false,
   }
 
-  switchNameHandler = (newName) => {
-    this.setState({
-      persons: [
-        { name: newName, age: 67 },
-        { name: 'Sunamelia', age: 64 },
-        { name: 'Urso Weber', age: 65 }
-      ]
-    }
-    )
-  }
+ 
 
   changeNameHandler = (event) => {
     this.setState({
@@ -40,6 +31,13 @@ class App extends Component {
     this.setState({ showPersons: !doesShow })
   };
 
+deletePersonHandler =(personId)=> {
+  //const persons = this.state.persons.slice();
+  const persons =[...this.state.persons];
+  persons.splice(personId, 1);
+  this.setState( {persons: persons});
+}
+
   render() {
 
     const style = {
@@ -55,14 +53,15 @@ class App extends Component {
     if (this.state.showPersons) {
       persons = (
         <div>
-          {this.state.persons.map(person => {
+          {this.state.persons.map( (person, index) => {
             return <Person
               name={person.name}
-              age={person.name} />
+              age={person.name} 
+              clicked={()=>this.deletePersonHandler(index)}
+              />
           })}
         </div>
       );
-      
       
     }
 
