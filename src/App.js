@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Radium from 'radium';
 import Person from './Person/Person';
 import './App.css';
 
@@ -54,6 +55,10 @@ deletePersonHandler =(personId)=> {
       border: '1px solid blue',
       padding: '8px',
       cursor: 'pointer',
+      ':hover': {
+        backgroundColor: 'lightgreen',
+        color: 'black'
+      }
     };
 
     let persons = null;
@@ -74,6 +79,10 @@ deletePersonHandler =(personId)=> {
         </div>
       );
       style.backgroundColor='red';
+      style[':hover'] = {
+        backgroundColor: 'salmon',
+        color: 'black'
+      }
     }
 
     const classes = [];
@@ -101,4 +110,4 @@ deletePersonHandler =(personId)=> {
 }
 
 
-export default App;
+export default Radium(App);
