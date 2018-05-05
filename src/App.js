@@ -76,12 +76,18 @@ deletePersonHandler =(personId)=> {
       style.backgroundColor='red';
     }
 
-let classes = ['red', 'bold'].join(' ');
+    const classes = [];
+    if(this.state.persons.length <= 2) {
+      classes.push('red');
+    }
+    if(this.state.persons.length<=1){
+      classes.push('bold');
+    }
 
     return (
       <div className='App'>
         <h1> I'm a react Application</h1>
-        <p className={classes} > this is really working </p>
+        <p className={classes.join(' ')} > this is really working </p>
         {/*<button onClick={this.switchNameHandler.bind(this, 'Felix Urso')} > Switch Name </button> */}
         <button
           style={style}
