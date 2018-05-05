@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Radium from 'radium';
+import Radium, { StyleRoot } from 'radium';
 import Person from './Person/Person';
 import './App.css';
 
@@ -94,17 +94,17 @@ deletePersonHandler =(personId)=> {
     }
 
     return (
-      <div className='App'>
-        <h1> I'm a react Application</h1>
-        <p className={classes.join(' ')} > this is really working </p>
-        {/*<button onClick={this.switchNameHandler.bind(this, 'Felix Urso')} > Switch Name </button> */}
-        <button
-          style={style}
-          onClick={() => this.togglePersonsHandler()} > Toggle Persons </button>
-        {persons}
-
-
-      </div>
+      <StyleRoot>
+        <div className='App'>
+          <h1> I'm a react Application</h1>
+          <p className={classes.join(' ')} > this is really working </p>
+          {/*<button onClick={this.switchNameHandler.bind(this, 'Felix Urso')} > Switch Name </button> */}
+          <button
+            style={style}
+            onClick={() => this.togglePersonsHandler()} > Toggle Persons </button>
+          {persons}
+        </div>
+      </StyleRoot>
     );
   }
 }
