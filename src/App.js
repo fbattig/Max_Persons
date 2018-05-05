@@ -76,10 +76,12 @@ deletePersonHandler =(personId)=> {
       style.backgroundColor='red';
     }
 
+let classes = ['red', 'bold'].join(' ');
 
     return (
       <div className='App'>
-        <h1> Hola</h1>
+        <h1> I'm a react Application</h1>
+        <p className={classes} > this is really working </p>
         {/*<button onClick={this.switchNameHandler.bind(this, 'Felix Urso')} > Switch Name </button> */}
         <button
           style={style}
