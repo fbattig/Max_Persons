@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Person from './Person/Person';
-
+import './App.css';
 
 class App extends Component {
 
@@ -48,7 +48,8 @@ deletePersonHandler =(personId)=> {
   render() {
 
     const style = {
-      backgroundColor: 'white',
+      backgroundColor: 'green',
+      color:'white',
       font: 'inherit',
       border: '1px solid blue',
       padding: '8px',
@@ -72,12 +73,12 @@ deletePersonHandler =(personId)=> {
           })}
         </div>
       );
-      
+      style.backgroundColor='red';
     }
 
 
     return (
-      <div>
+      <div className='App'>
         <h1> Hola</h1>
         {/*<button onClick={this.switchNameHandler.bind(this, 'Felix Urso')} > Switch Name </button> */}
         <button
