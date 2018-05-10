@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Persons from '../Persons/Persons';
+import CockPit from '../Cockpit/Cockpit';
 import classes from './App.css';
 
 class App extends Component {
@@ -66,24 +67,17 @@ deletePersonHandler =(personId)=> {
      
     }
 
-    const Assignedclasses = [];
-    if(this.state.persons.length <= 2) {
-      Assignedclasses.push(classes.red);
-    }
-    if(this.state.persons.length<=1){
-      Assignedclasses.push(classes.bold);
-    }
-
+  
     return (
      
         <div className={classes.App}>
-          <h1> I'm a react Application</h1>
-          <p className={Assignedclasses.join(' ')} > this is really working </p>
-          {/*<button onClick={this.switchNameHandler.bind(this, 'Felix Urso')} > Switch Name </button> */}
-          <button
-            className = {buttonClass}
-            onClick={() => this.togglePersonsHandler()} > Toggle Persons </button>
-          {persons}
+        <CockPit 
+            showPersons= {this.state.showPersons}
+            persons={this.state.persons}
+            clicked ={this.togglePersonsHandler}
+
+         />
+         {persons}
         </div>
      
     );
