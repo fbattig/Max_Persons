@@ -50,8 +50,7 @@ deletePersonHandler =(personId)=> {
   render() {
 
       let persons = null;
-      let buttonClass =' ';
-
+      
     if (this.state.showPersons) {
       persons = (
         <div>
@@ -63,8 +62,7 @@ deletePersonHandler =(personId)=> {
          
         </div>
       );
-       buttonClass= classes.Red;
-     
+       
     }
 
   
